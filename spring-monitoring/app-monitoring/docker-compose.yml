@@ -1,6 +1,15 @@
 version: '3.8'
 
 services:
+  spring-monitoring-demo:
+    build:
+      context: ../spring-monitoring-demo
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    networks:
+      - prometheus-docker
+
   prometheus:
     image: prom/prometheus:main
     container_name: prometheus
@@ -8,6 +17,8 @@ services:
       - '9090:9090'
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - prometheus-docker
 
   grafana:
     image: grafana/grafana:main
@@ -17,3 +28,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - prometheus-docker
+
+networks:
+  prometheus-docker:
+    driver: bridge
