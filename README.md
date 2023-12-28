@@ -1,1 +1,1 @@
-# java kubernetes practise
+# java kubernetes playground
