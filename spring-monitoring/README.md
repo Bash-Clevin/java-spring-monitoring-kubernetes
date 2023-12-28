@@ -1,6 +1,6 @@
 # Springboot +Prometheus +Grafana
 
-This is a simple springboot RESTAPI that demostrates usage of alarting and monitoring
+This is a simple springboot RESTAPI that demostrates usage of alerting and monitoring
 
 ![Grafana dashboard](assets/grafana-dashboard-2023-12-28-19-19-42.png)
 
