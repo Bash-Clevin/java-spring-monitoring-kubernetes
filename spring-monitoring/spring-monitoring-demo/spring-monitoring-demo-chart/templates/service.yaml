@@ -3,7 +3,8 @@ kind: Service
 metadata:
   name: {{ include "spring-monitoring-demo-chart.fullname" . }}
   labels:
-    {{- include "spring-monitoring-demo-chart.labels" . | nindent 4 }}
+    app: {{ .Values.service.serviceLabel }}
+    job: {{ .Values.service.jobName }}
 spec:
   type: {{ .Values.service.type }}
   ports:
