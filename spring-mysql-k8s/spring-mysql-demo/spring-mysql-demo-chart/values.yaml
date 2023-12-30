@@ -5,7 +5,7 @@ mysql:
 
 springApp:
   image:
-    repository: spring_mysql_demo
+    repository: spring-mysql-demo
     pullPolicy: IfNotPresent
     tag: latest
 

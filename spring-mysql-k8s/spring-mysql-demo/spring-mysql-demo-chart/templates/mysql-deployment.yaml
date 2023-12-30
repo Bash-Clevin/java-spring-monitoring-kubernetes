@@ -23,17 +23,12 @@ spec:
                   key: password
             - name: MYSQL_DATABASE
               value: {{ .Values.mysql.databaseName }}
-            - name: MYSQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Release.Name }}-mysql-username
-                  key: username
           ports:
-            - containPort: 3306
+            - containerPort: 3306
           volumeMounts:
             - name: {{ .Release.Name }}-mysql-persistent-storage
               mountPath: {{ .Values.mysqlVolume.mountPath }}
       volumes:
-        - name: {{ .Release.Name }}-mysql-persitent-storage
+        - name: {{ .Release.Name }}-mysql-persistent-storage
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-mysql-pvc
