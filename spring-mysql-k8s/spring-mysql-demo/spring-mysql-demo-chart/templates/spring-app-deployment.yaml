@@ -22,15 +22,15 @@ spec:
             - name: SPRING_DATASOURCE_URL
               value: {{ include "my-spring-app.fullMYSQLConnectionURL" . | quote }}
             - name: SPRING_DATASOURCE_USERNAME
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Release.Name }}-mysql-username
-                    key: username
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-mysql-username
+                  key: username
             - name: SPRING_DATASOURCE_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Release.Name }}-mysql-root-password
-                    key: password
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-mysql-root-password
+                  key: password
 
 
 

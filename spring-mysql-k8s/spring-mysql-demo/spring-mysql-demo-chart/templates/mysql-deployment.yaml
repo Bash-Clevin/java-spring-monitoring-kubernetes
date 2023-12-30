@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ . Release.Name }}-mysql
+      app: {{ .Release.Name }}-mysql
   template:
     metadata:
       labels:
